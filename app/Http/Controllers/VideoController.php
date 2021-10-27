@@ -49,6 +49,8 @@ class VideoController extends Controller
                 $post->images()->save($image);
             }
         }
+
+        return redirect(route('videos.index'));
         //
     }
 

@@ -17,7 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('images')->get();
+        $posts = Post::with('images', 'media')->get();
+
         return view('posts.index', compact('posts'));
         //
     }
@@ -48,8 +49,10 @@ class PostController extends Controller
         if ($files = $request->file('fileimage')) {
             foreach ($files as $file) {
                 $name = $file->store('image', 'public');
-                $image = new Image(["imagefile" => $name]);
-                $post->images()->save($image);
+
+                $image = $post->images()->create(["imagefile" => $name]);
+                // $image = new Image(["imagefile" => $name]);
+                // $post->images()->save($image); use either
             }
         }
 
@@ -99,5 +102,24 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+
+
+    public function mediapost(Request $request)
+    {
+        $input = $request->all();
+        $client = Post::create($input);
+        if ($request->file('fileimage')) {
+            foreach ($request->file('fileimage') as $photo) {
+                $client->addMedia($photo)->toMediaCollection('post');
+            }
+        }
+
+        return redirect(route('posts.index'));
+    }
+    public function getpost()
+    {
+        return view('posts.newcreate');
     }
 }

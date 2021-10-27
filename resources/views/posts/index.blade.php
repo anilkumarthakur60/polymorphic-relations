@@ -20,8 +20,16 @@
                     <td>
                         @foreach ($post->images as $image)
                             <img src="{{ '/storage/' . $image->imagefile }}" height="200" width="200" alt="">
+                            {{-- <img src="{{ $image->getFirstMediaUrl('fileimage', 'thumb') }}" width="120px"> --}}
                         @endforeach
+
                     </td>
+                    {{-- <td><img src="{{ $post->getFirstMediaUrl('fileimage', 'thumb') }}" / width="120px"></td> --}}
+                    {{-- <td>
+                        @foreach ($post->getMedia('fileimage') as $image)
+
+                            {{ $image->getMedia('fileimage')->getUrl('thumb') }} @endforeach
+                    </td> --}}
                 </tr>
             @endforeach
 

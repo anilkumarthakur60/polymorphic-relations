@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\VideoController;
@@ -25,6 +26,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('posts/newpost', [PostController::class, 'mediapost'])->name('posts.newpost');
+Route::get('posts/newpost', [PostController::class, 'getpost'])->name('posts.mediapost');
 Route::resource('posts', PostController::class);
 Route::resource('videos', VideoController::class);
 Route::resource('images', ImageController::class);
+Route::resource('categories', CategoryController::class);

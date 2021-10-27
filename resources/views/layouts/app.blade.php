@@ -28,32 +28,37 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link btn btn-sm btn-outline-danger mx-2" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link btn btn-sm btn-danger text-white mx-2"
+                                href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-sm btn-outline-danger mx-2"
+                            <a class="nav-link btn btn-sm btn-danger text-white mx-2"
                                 href="{{ route('posts.index') }}">Posts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-sm btn-outline-danger mx-2"
+                            <a class="nav-link btn btn-sm btn-danger text-white mx-2"
                                 href="{{ route('videos.index') }}">Video</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-sm btn-outline-danger mx-2"
+                            <a class="nav-link btn btn-sm btn-danger text-white mx-2"
                                 href="{{ route('images.index') }}">Images</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-sm btn-danger text-white mx-2"
+                                href="{{ route('categories.index') }}">Category</a>
                         </li>
 
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-sm btn-outline-danger mx-2"
+                                    <a class="nav-link btn btn-sm btn-danger text-white mx-2"
                                         href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-sm btn-outline-danger mx-2"
+                                    <a class="nav-link btn btn-sm btn-danger text-white mx-2"
                                         href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
@@ -89,7 +94,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
