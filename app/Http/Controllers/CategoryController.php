@@ -124,6 +124,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if (File::exists($category->image)) {
+            unlink($category->image);
+        }
+        $category->delete();
+        return redirect(route('categories.index'));
     }
 }
