@@ -31,4 +31,6 @@ Route::get('posts/newpost', [PostController::class, 'getpost'])->name('posts.med
 Route::resource('posts', PostController::class);
 Route::resource('videos', VideoController::class);
 Route::resource('images', ImageController::class);
+Route::get('categories/dropzone', [CategoryController::class, 'dropzoneindex'])->name('categories.dropzoneindex');
+Route::post('categories/dropzone', [CategoryController::class, 'dropzonestore'])->name('categories.dropzonestore');
 Route::resource('categories', CategoryController::class);

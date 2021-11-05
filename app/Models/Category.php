@@ -9,5 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image'];
+    protected $fillable = ['name'];
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imagable');
+    }
 }
